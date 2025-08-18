@@ -17,14 +17,14 @@ public:
 
 class movie : public user {
 public:
-    int movieChoice, movieLanguageChoice, backSeatsBooked;
+    int movieChoice, movieLanguageChoice, backSeats,ticket_price;
     string movie_name, movieTime;
     int dayChoice;
     string dayName;
     string movieLanguage;
 
     void movie_days() {
-        cout << "Movies available for 3 days \n\n1.Friday\n\n2.Saturday\n\n3.Sunday):\n\nFor which day you want to book your tickets: ";
+        cout << "Movies available for 3 days \n\n1.Friday\n\n2.Saturday\n\n3.Sunday\n\nFor which day you want to book your tickets: ";
         cin >> dayChoice;
 
         switch (dayChoice) {
@@ -40,6 +40,7 @@ public:
             default: {
 			 cout << "wrong choice ";
 			  break;
+			  
 			   }
         }
 
@@ -96,15 +97,17 @@ public:
             }
 
             switch (time) {
-                case 1: cout << "15 of front seats are booked and 35 back seats are available at this time.\n"; break;
-                case 2: cout << "25 of front seats are booked and 25 back seats are available at this time.\n"; break;
-                case 3: cout << "30 of front seats are booked and 20 back seats are available at this time.\n"; break;
+                case 1: cout << "15 of front seats are booked and 35 back seats are available at this time\nEach ticket cost 600RS\n"; break;
+                case 2: cout << "25 of front seats are booked and 25 back seats are available at this time\nEach ticket cost 600RS\n"; break;
+                case 3: cout << "30 of front seats are booked and 20 back seats are available at this time\nEach ticket cost 600RS\n"; break;
                 default: cout << "Invalid time selected.\n";
             }
 
             cout << "Can you tell how many back seats you want to book? ";
-            cin >> backSeatsBooked;
-            cout << "Booking successfully! Your seat has been reserved\n";
+            cin >> backSeats;
+            ticket_price=600*backSeats;
+            
+            
         }
 
         if (movieLanguageChoice == 2) {
@@ -148,14 +151,15 @@ public:
             }
 
             switch (time) {
-                case 1: cout << "20 of front seats are booked and 30 back seats are available at this time.\n"; break;
-                case 2: cout << "25 of front seats are booked and 25 back seats are available at this time.\n"; break;
-                case 3: cout << "30 of front seats are booked and 20 back seats are available at this time.\n"; break;
+                case 1: cout << "20 of front seats are booked and 30 back seats are available at this time\nEach ticket cost 600RS\n"; break;
+                case 2: cout << "25 of front seats are booked and 25 back seats are available at this time\nEach ticket cost 600RS\n"; break;
+                case 3: cout << "30 of front seats are booked and 20 back seats are available at this time\nEach ticket cost 600RS\n"; break;
                 default: cout << "Invalid time selected.\n";
             }
 
             cout << "\nCan you tell how many back seats you want to book? ";
-            cin >> backSeatsBooked;
+            cin >> backSeats;
+            ticket_price=600*backSeats;
     }
     }
 	void thanks(){
@@ -174,7 +178,8 @@ public:
         cout << "Movie Day: " << dayName << endl;
         cout << "Movie Time: " << movieTime << endl;
         cout << "Movie Selected: " << movie_name << endl;
-        cout << "Seat Reserved: " << backSeatsBooked << endl;
+        cout << "Seat Reserved: " << backSeats << endl;
+         cout << "Total Bill: " << ticket_price << endl;
     }
 };
 
